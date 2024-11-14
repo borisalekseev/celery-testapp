@@ -1,2 +1,3 @@
 .idea
 **/*.pyi
+db.sqlite3
