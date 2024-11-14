@@ -1,4 +1,4 @@
-from .celery_large_job_app import app as celery_large_job_app
+from .celery_app import app as celery_app
 
 
-__all__ = ("celery_large_job_app", )
+__all__ = ("celery_app", )

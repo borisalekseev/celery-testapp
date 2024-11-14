@@ -12,8 +12,14 @@ services:
     ports:
       - 6379:6379
 
-  large_single_job_worker:
+  large_job_worker:
     volumes:
       - ./:/app
     image: celery-testapp-dev
-    command: celery -A app.celery_large_job_app worker --loglevel INFO --concurrency=1
+    command: celery -A app.celery_app worker -Q large_job --loglevel INFO --concurrency=1
+
+  quick_tasks_worker:
+    volumes:
+      - ./:/app
+    image: celery-testapp-dev
+    command: celery -A app.celery_app worker -Q quick_tasks --loglevel INFO --concurrency=10

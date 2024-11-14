@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from users.views import run_large_task
+from simple_tasks_app.views import run_large_task, check_running, run_quick_task
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('runLargeTask/', run_large_task)
+    path('runLargeTask/', run_large_task),
+    path('currentTasks/', check_running),
+    path('runQuickTask/', run_quick_task)
 ]
