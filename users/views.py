@@ -1,4 +1,4 @@
-from celery_large_job_app import large_job
+from users.tasks import large_job
 from django.http import HttpResponse
 
 

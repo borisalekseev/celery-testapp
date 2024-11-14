@@ -16,4 +16,4 @@ services:
     volumes:
       - ./:/app
     image: celery-testapp-dev
-    command: celery -A celery_large_job_app worker --loglevel INFO --concurrency=1
+    command: celery -A app.celery_large_job_app worker --loglevel INFO --concurrency=1
