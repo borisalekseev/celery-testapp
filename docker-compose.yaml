@@ -1,0 +1,19 @@
+services:
+  app:
+    volumes:
+      - ./:/app
+    image: celery-testapp-dev
+    command: python3 manage.py runserver 0.0.0.0:8000
+    ports:
+      - 8000:8000
+
+  redis:
+    image: redis:5-alpine
+    ports:
+      - 6379:6379
+
+  large_single_job_worker:
+    volumes:
+      - ./:/app
+    image: celery-testapp-dev
+    command: celery -A celery_large_job_app worker --loglevel INFO --concurrency=1
